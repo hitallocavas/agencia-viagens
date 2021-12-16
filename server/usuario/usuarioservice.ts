@@ -1,5 +1,5 @@
-import { Usuario } from '../commons/usuario'
-import {LoginDTO} from '../commons/logindto'
+import { Usuario } from '../../commons/entidade/usuario'
+import {LoginDTO} from '../../commons/dto/logindto'
 import { UsuarioRepository } from './usuariorepository'
 
 export class UsuarioService {

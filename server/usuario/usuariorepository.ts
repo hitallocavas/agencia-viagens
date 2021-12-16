@@ -1,4 +1,4 @@
-import { Usuario } from "../commons/usuario";
+import { Usuario } from "../../commons/entidade/usuario";
 
 export class UsuarioRepository {
     usuarios: Usuario[] = [];

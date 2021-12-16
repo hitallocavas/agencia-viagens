@@ -1,8 +1,8 @@
 import express = require('express');
-import { LoginDTO } from '../commons/logindto';
+import { LoginDTO } from '../commons/dto/logindto';
 
-import { Usuario } from '../commons/usuario';
-import { UsuarioService } from './usuarioservice'
+import { Usuario } from '../commons/entidade/usuario';
+import { UsuarioService } from './usuario/usuarioservice'
 
 var taserver = express();
 
