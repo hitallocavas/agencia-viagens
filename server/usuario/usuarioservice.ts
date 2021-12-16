@@ -6,17 +6,9 @@ export class UsuarioService {
 
     repository: UsuarioRepository = new UsuarioRepository();
 
-    cadastrar(cliente: Usuario): Usuario {
-        if (this.repository.existeUsuarioPorCpf(cliente.cpf)) {
-            throw new Error("Cpf já cadastrado no sistema.")
-        }
-
-        if (this.repository.existeUsuarioPorEmail(cliente.email)) {
-            throw new Error("E-mail já cadastrado no sistema")
-        }
-
-        this.repository.adicionarUsuario(cliente);
-        return cliente;
+    cadastrar(usuario: Usuario): Usuario {
+        this.repository.adicionarUsuario(usuario);
+        return usuario;
     }
 
     login(loginDTO: LoginDTO): Usuario{

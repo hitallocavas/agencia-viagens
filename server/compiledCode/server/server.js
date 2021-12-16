@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.closeServer = exports.server = void 0;
 const express = require("express");
-const usuarioservice_1 = require("./usuarioservice");
+const usuarioservice_1 = require("./usuario/usuarioservice");
 var taserver = express();
 var usuarioService = new usuarioservice_1.UsuarioService();
 var allowCrossDomain = function (req, res, next) {

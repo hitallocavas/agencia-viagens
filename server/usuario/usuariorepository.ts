@@ -4,6 +4,14 @@ export class UsuarioRepository {
     usuarios: Usuario[] = [];
 
     adicionarUsuario(usuario: Usuario): void {
+        if (this.existeUsuarioPorCpf(usuario.cpf)) {
+            throw new Error("Cpf já cadastrado no sistema.")
+        }
+
+        if (this.existeUsuarioPorEmail(usuario.email)) {
+            throw new Error("E-mail já cadastrado no sistema")
+        }
+
         this.usuarios.push(usuario);
     }
 
