@@ -1,11 +1,12 @@
 import express = require('express');
+import { LoginDTO } from '../commons/logindto';
 
 import { Usuario } from '../commons/usuario';
-import { CadastroUsuario } from './cadastrousuario'
+import { UsuarioService } from './usuarioservice'
 
 var taserver = express();
 
-var cadastroUsuario: CadastroUsuario = new CadastroUsuario();
+var usuarioService: UsuarioService = new UsuarioService();
 
 var allowCrossDomain = function (req: any, res: any, next: any) {
   res.header('Access-Control-Allow-Origin', "*");
@@ -19,15 +20,26 @@ taserver.use(express.json());
 
 
 taserver.get('/usuarios', function (req: express.Request, res: express.Response) {
-  res.send(JSON.stringify(cadastroUsuario.buscarTodos()));
+  res.send(JSON.stringify(usuarioService.buscarTodos()));
 })
 
 taserver.post('/usuarios', function (req: express.Request, res: express.Response) {
   var usuario: Usuario = <Usuario>req.body;
 
   try {
-    usuario = cadastroUsuario.cadastrar(usuario);
+    usuario = usuarioService.cadastrar(usuario);
     res.send({ "mensagem": "Cadastro realizado com sucesso." });
+  } catch (error) {
+    res.status(400).send({ "mensagem": error.message });
+  }
+})
+
+taserver.post('/login', function (req: express.Request, res: express.Response) {
+  var loginDTO: LoginDTO = <LoginDTO>req.body;
+
+  try {
+    var usuario = usuarioService.login(loginDTO);
+    res.send(JSON.stringify(usuario));
   } catch (error) {
     res.status(400).send({ "mensagem": error.message });
   }

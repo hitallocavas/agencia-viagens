@@ -1,7 +1,8 @@
 import { Usuario } from '../commons/usuario'
+import {LoginDTO} from '../commons/logindto'
 import { UsuarioRepository } from './usuariorepository'
 
-export class CadastroUsuario {
+export class UsuarioService {
 
     repository: UsuarioRepository = new UsuarioRepository();
 
@@ -16,6 +17,20 @@ export class CadastroUsuario {
 
         this.repository.adicionarUsuario(cliente);
         return cliente;
+    }
+
+    login(loginDTO: LoginDTO): Usuario{
+        if(!this.repository.existeUsuarioPorEmail(loginDTO.email)){
+            throw new Error("Não existe cadastro com o e-mail enviado.");
+        }
+        
+        const usuario = this.repository.buscarPorEmailSenha(loginDTO.email, loginDTO.senha);
+
+        if(!usuario){
+            throw new Error("Senha inválida.")
+        }
+
+        return usuario;
     }
 
     buscarTodos(): Usuario[]{

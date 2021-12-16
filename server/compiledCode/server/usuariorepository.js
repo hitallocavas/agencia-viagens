@@ -11,6 +11,9 @@ class UsuarioRepository {
     buscarTodos() {
         return this.usuarios;
     }
+    buscarPorEmailSenha(email, senha) {
+        return this.usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
+    }
     existeUsuarioPorCpf(cpf) {
         return this.usuarios.some(usuario => usuario.cpf === cpf);
     }

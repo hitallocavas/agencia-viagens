@@ -11,6 +11,10 @@ export class UsuarioRepository {
         return this.usuarios;
     }
 
+    buscarPorEmailSenha(email: string, senha: string): Usuario {
+        return this.usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
+    }
+
     existeUsuarioPorCpf(cpf: string): boolean {
         return this.usuarios.some(usuario => usuario.cpf === cpf)
     }
