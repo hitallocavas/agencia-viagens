@@ -52,7 +52,7 @@ describe('Repositório de Usuários', () => {
         ).toThrowError("Cpf já cadastrado no sistema.");
     });
 
-    it("Cadastra Usuário com falha E-MAIL duplicado", () => {
+    it("Cadastra Usuário com falha E-mail duplicado", () => {
         repositorio.adicionarUsuario(usuarioMock2);
 
         expect(
