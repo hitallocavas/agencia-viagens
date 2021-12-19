@@ -1,0 +1,28 @@
+<div class="w-100 m-top-15 flex-center">
+    <div class="uk-card uk-card-secondary w-50">
+        <div class="uk-card-body">
+            <form>
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Cadastre-se na Agenvia! <p> Preencha seus dados abaixo...</p></legend>
+            
+                    <div class="uk-margin">
+                        <input name="nomeCliente" [(ngModel)] = "usuario.nome" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SEU NOME...">
+                    </div>
+                    <div class="uk-margin">
+                        <input name="emailCliente" [(ngModel)] = "usuario.email" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SEU E-MAIL...">
+                    </div>
+                    <div class="uk-margin">
+                        <input name="cpfCliente" [(ngModel)] = "usuario.cpf" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SEU CPF...">
+                    </div>
+                    <div class="uk-margin">
+                        <input name="senhaCliente" type="password" [(ngModel)] = "usuario.senha" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SUA SENHA...">
+                    </div>
+                    <div class="uk-margin">
+                        <input name="senhaConfirmacaoCliente" type="password" [(ngModel)] = "senhaConfirmacao" class="uk-input uk-form-width-large" type="text" placeholder="CONFIRME SUA SENHA...">
+                    </div>
+                </fieldset>
+                <button class="uk-button uk-button-default" (click) = "cadastrar()">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div>
