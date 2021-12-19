@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
-import { timeout } from 'rxjs';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Constants } from '../../../../../../commons/constants'
 import { Usuario } from '../../../../../../commons/entidade/usuario';
+import { Router } from "@angular/router"
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -18,26 +18,34 @@ export class CadastroClienteComponent implements OnInit {
   constructor(
     private titleService: Title,
     private usuarioService: UsuarioService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle(Constants.CADASTRO_CLIENTE_TITULO);
   }
 
   cadastrar(): void {
-    this.validarSenhas();
-    this.usuarioService.cadastrar(this.usuario).subscribe(response => {
-      this.mostrarAlertSucesso(response.mensagem);
-    }, (err) => {
-      console.log(err.error.mensagem)
-      this.mostrarAlertErro(err.error.mensagem);
-    })
+    if (this.isSenhasValidas()) {
+      this.usuarioService.cadastrar(this.usuario).subscribe({
+        next: (response) => {
+          this.mostrarAlertSucesso(response.mensagem);
+          this.router.navigate(['/login'])
+        },
+        error: (err) => {
+          this.mostrarAlertErro(err.error.mensagem);
+        }
+      })
+    }
   }
 
-  private validarSenhas() {
+  private isSenhasValidas(): boolean {
     if (this.usuario.senha !== this.senhaConfirmacao) {
       this.mostrarAlertErro("As senhas precisam ser iguais!");
+      return false;
     }
+    return true;
   }
 
   private resetarUsuario() {

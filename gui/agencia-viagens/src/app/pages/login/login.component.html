@@ -1,0 +1,19 @@
+<div class="w-100 m-top-10 flex-center">
+    <div class="uk-card uk-card-secondary w-50">
+        <div class="uk-card-body">
+            <form>
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Login</legend>
+            
+                    <div class="uk-margin">
+                        <input name="emailLogin" [(ngModel)] = "loginDTO.email" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SEU E-MAIL...">
+                    </div>
+                    <div class="uk-margin">
+                        <input name="senhaLogin" type="password" [(ngModel)] = "loginDTO.senha" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SUA SENHA...">
+                    </div>
+                </fieldset>
+                <button class="uk-button uk-button-default" (click) = "login()">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>
