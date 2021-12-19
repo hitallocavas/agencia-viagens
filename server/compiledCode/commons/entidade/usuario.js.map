@@ -1,1 +1,1 @@
-{"version":3,"file":"usuario.js","sourceRoot":"","sources":["../../../../commons/entidade/usuario.ts"],"names":[],"mappings":";;;AAAA,MAAa,OAAO;IAOhB,gBAAgB,CAAC;CACpB;AARD,0BAQC"}
+{"version":3,"file":"usuario.js","sourceRoot":"","sources":["../../../../commons/entidade/usuario.ts"],"names":[],"mappings":";;;AAAA,MAAa,OAAO;IAOhB,gBAAgB,CAAC;IAEV,MAAM,CAAC,gBAAgB;QAC1B,IAAI,OAAO,GAAY,IAAI,OAAO,EAAE,CAAC;QACrC,OAAO,CAAC,IAAI,GAAG,SAAS,CAAC;QACzB,OAAO,OAAO,CAAC;IACnB,CAAC;CACJ;AAdD,0BAcC"}
