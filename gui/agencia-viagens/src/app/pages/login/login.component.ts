@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Constants } from '../../../../../../commons/constants';
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private titleService: Title,
     private usuarioService: UsuarioService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,12 @@ export class LoginComponent implements OnInit {
       next: (response) => {
         localStorage.setItem("usuarioLogado", JSON.stringify(response))
         this.mostrarAlertSucesso("Seja bem vindo.");
+        if(response.tipo === "CLIENTE"){
+          this.router.navigate(['/clientes']);
+        }
+        if(response.tipo === "ADMIN"){
+          this.router.navigate(['/admin'])
+        }
       },
       error: (err) => {
         this.mostrarAlertErro(err.error.mensagem);

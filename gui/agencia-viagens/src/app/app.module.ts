@@ -9,12 +9,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { ClienteHomeComponent } from './pages/cliente/cliente-home/cliente-home.component';
+import { ReservasComponent } from './pages/cliente/reservas/reservas.component';
+import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
+import { VoosComponent } from './pages/admin/voos/voos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroClienteComponent,
-    LoginComponent
+    LoginComponent,
+    ClienteHomeComponent,
+    ReservasComponent,
+    AdminHomeComponent,
+    VoosComponent
   ],
   imports: [
     BrowserModule,
