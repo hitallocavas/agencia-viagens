@@ -4,9 +4,9 @@
   "description": "Servidor do teaching assistant",
   "main": "server.ts",
   "scripts": {
-    "test": "tsc && jasmine --config=./spec/support/jasmine.json",
+    "test": "npm run tsc && jasmine --config=./spec/support/jasmine.json",
     "tsc": "./node_modules/typescript/bin/tsc",
-    "start": "tsc && node compiledCode/server/server.js"
+    "start": "npm run tsc && node compiledCode/server/server.js"
   },
   "keywords": [],
   "author": "Hitallo Cavalcanti",
