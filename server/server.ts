@@ -4,6 +4,8 @@ import { LoginDTO } from '../commons/dto/logindto';
 import { Usuario } from '../commons/entidade/usuario';
 import { UsuarioService } from './usuario/usuarioservice'
 
+import { Voo } from '../commons/entidade/Voo';
+
 var taserver = express();
 
 var usuarioService: UsuarioService = new UsuarioService();
@@ -17,6 +19,14 @@ var allowCrossDomain = function (req: any, res: any, next: any) {
 
 taserver.use(allowCrossDomain);
 taserver.use(express.json());
+
+
+taserver.post('/Voo', function (req: express.Request, res: express.Response) {
+  var voo: Voo = <Voo>req.body;
+  
+  console.log(JSON.stringify(voo));
+  res.send("Foi");
+})
 
 
 taserver.get('/usuarios', function (req: express.Request, res: express.Response) {
