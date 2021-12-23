@@ -8,6 +8,10 @@ export class ReservaService {
         this.reservaRepository.cadastrar(reserva);
     }
 
+    cancelar(reserva: Reserva): void {
+        this.reservaRepository.cancelar(reserva);
+    }
+
     buscarTodos(): Reserva[] {
         return this.reservaRepository.buscarTodos();
     }

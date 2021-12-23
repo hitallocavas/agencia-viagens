@@ -32,6 +32,7 @@
         <th>Local de Destino</th>
         <th>Duracao</th>
         <th>Empresa</th>
+        <th>Cancelar Reserva</th>
     </tr>
     <tr *ngFor="let reserva of reservas" name="reservalist">
         <td name="reservaCpfClienteList">{{reserva.cpfCliente}}</td>
@@ -42,5 +43,6 @@
         <td name="reservaLocalDestinoList">{{reserva.voo.localDestino}}</td>
         <td name="reservaDuracaoList">{{reserva.voo.duracao}}</td>
         <td name="reservaEmpresaList">{{reserva.voo.empresa}}</td>
+        <td name="reservaCancelarList"><button id="btnReservasId" name="btReservas" (click)="cancelar(reserva)">Cancelar</button></td>
     </tr>
 </table>

@@ -52,6 +52,22 @@ export class ReservasComponent implements OnInit {
     })
   }
 
+  cancelar(reserva: Reserva): void {
+    if (
+      confirm(`Deseja confirmar o cancelamento da Reserva para o Vôo com origem ${reserva.voo.localPartida} e destino ${reserva.voo.localDestino}?`)
+    ) {
+      this.reservaService.cancelar(reserva).subscribe({
+        next: (response) => {
+          this.mostrarAlertSucesso(response.mensagem);
+          this.buscarPorCpf();
+        },
+        error: (err) => {
+          this.mostrarAlertErro(err.error.mensagem);
+        }
+      })
+    }
+  }
+
   mostrarAlertSucesso(mensagem: string): void {
     this.toastr.success(mensagem, "Sucesso!");
   }

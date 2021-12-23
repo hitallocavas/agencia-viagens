@@ -17,6 +17,10 @@ export class ReservaService {
     return this.http.post(environment.serverHost + "/reservas", reserva, { headers: this.headers })
   }
 
+  cancelar(reserva: Reserva): Observable<any> {
+    return this.http.post(environment.serverHost + "/reservas/cancelar", reserva, { headers: this.headers })
+  }
+
   buscarTodos(): Observable<any> {
     return this.http.get(environment.serverHost + "/reservas", { headers: this.headers })
   }

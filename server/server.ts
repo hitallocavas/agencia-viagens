@@ -64,6 +64,18 @@ taserver.post('/reservas', function (req: express.Request, res: express.Response
   }
 })
 
+taserver.post('/reservas/cancelar', function (req: express.Request, res: express.Response) {
+  var reserva: Reserva = <Reserva>req.body;
+
+  try {
+    reservaService.cancelar(reserva);
+    res.send({ "mensagem": "Cancelamento realizado com sucesso." });
+  } catch (error) {
+    res.status(400).send({ "mensagem": error.message });
+  }
+})
+
+
 taserver.post('/voos', function (req: express.Request, res: express.Response) {
   var voo: Voo = <Voo>req.body;
   try {

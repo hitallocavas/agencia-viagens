@@ -11,6 +11,14 @@ export class ReservaRepository {
         }
     }
 
+    cancelar(reservaCliente: Reserva): void {
+        let index = this.reservas.findIndex(reserva => {
+            (reserva.cpfCliente === reservaCliente.cpfCliente) && (reserva.voo.codigoVoo === reservaCliente.voo.codigoVoo)
+        })
+
+        this.reservas.splice(index, 1);
+    }
+
     buscarTodos(): Reserva[] {
         return this.reservas;
     }
@@ -20,13 +28,13 @@ export class ReservaRepository {
     }
 
     isReservaHorarioValido(reservaCliente: Reserva): boolean {
-            var now = new Date();
-            let hourAtual = now.getHours();
-            let minutesAtual = now.getMinutes();
-            let horarioSaida = reservaCliente.voo.horarioSaida.split(':');
-            let hourReserva = parseInt(horarioSaida[0]);
-            let minutoReserva = parseInt(horarioSaida[1]);
+        var now = new Date();
+        let hourAtual = now.getHours();
+        let minutesAtual = now.getMinutes();
+        let horarioSaida = reservaCliente.voo.horarioSaida.split(':');
+        let hourReserva = parseInt(horarioSaida[0]);
+        let minutoReserva = parseInt(horarioSaida[1]);
 
-            return (hourReserva > hourAtual) || ((hourReserva == hourAtual) && (minutoReserva >= minutesAtual))
+        return (hourReserva > hourAtual) || ((hourReserva == hourAtual) && (minutoReserva >= minutesAtual))
     }
 }
