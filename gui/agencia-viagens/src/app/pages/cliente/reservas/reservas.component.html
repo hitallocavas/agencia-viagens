@@ -1,5 +1,5 @@
 <h3>Voos disponíveis</h3>
-<table>
+<table class="uk-table uk-table-divider">
     <tr *ngIf="voos.length > 0">
         <th>Codigo Voo</th>
         <th>Codigo Avião</th>
@@ -23,9 +23,10 @@
 </table>
 
 <h3>Reservas disponíveis</h3>
-<table>
+<table class="uk-table uk-table-divider">
     <tr *ngIf="reservas.length > 0">
         <th>Cliente</th>
+        <th>COdigo Voo</th>
         <th>Codigo Avião</th>
         <th>Horário Saída</th>
         <th>Local de Partida</th>
