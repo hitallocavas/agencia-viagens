@@ -13,6 +13,8 @@ import { ClienteHomeComponent } from './pages/cliente/cliente-home/cliente-home.
 import { ReservasComponent } from './pages/cliente/reservas/reservas.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { VoosComponent } from './pages/admin/voos/voos.component';
+import { VooService } from './services/voo.service';
+import { ReservaService } from './services/reserva.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { VoosComponent } from './pages/admin/voos/voos.component';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, VooService, ReservaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

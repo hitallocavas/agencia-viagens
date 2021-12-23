@@ -1,6 +1,10 @@
 export class Voo {
+    codigoVoo!: string;
     codigoAviao!: string;
-    horarioSaida!: Date;
+    horarioSaida!: string;
     localPartida!: string;
     localDestino!: string;
+    duracao!: string;
+    empresa!: string;
+    constructor() { }
 }
