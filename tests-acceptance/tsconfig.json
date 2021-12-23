@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "declaration": false,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "outDir": "compiledCode",
+    "typeRoots": [ "./node_modules/@types" ]
+  },
+  "exclude": [
+    "node_modules",
+    "typescript"
+  ]
+}
