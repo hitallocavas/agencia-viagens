@@ -1,1 +1,53 @@
-<p>voos works!</p>
+<table>
+    <tr>
+        <td><label>Codigo Voo </label></td>
+        <td><input [(ngModel)]="voo.codigoVoo" name="codigoVooBox"></td>
+        <td><button (click)="cadastrar()">Adicionar</button></td>
+    </tr>
+    <tr>
+        <td><label>Codigo Aviao </label></td>
+        <td><input [(ngModel)]="voo.codigoAviao" name="codigoAviaoBox"></td>
+    </tr>
+    <tr>
+        <td><label>Horario Saida</label></td>
+        <td><input [(ngModel)]="voo.horarioSaida" name="horarioSaidaBox"></td>
+    </tr>
+    <tr>
+        <td><label>Local de Partida</label></td>
+        <td><input [(ngModel)]="voo.localPartida" name="localPartidaBox"></td>
+    </tr>
+    <tr>
+        <td><label>Local de Destino</label></td>
+        <td><input [(ngModel)]="voo.localDestino" name="localDestinoBox"></td>
+    </tr>
+    <tr>
+        <td><label>Duracao</label></td>
+        <td><input [(ngModel)]="voo.duracao" name="duracaoBox"></td>
+    </tr>
+    <tr>
+        <td><label>Empresa</label></td>
+        <td><input [(ngModel)]="voo.empresa" name="empresaBox"></td>
+    </tr>
+</table>
+
+<table>
+    <tr *ngIf="voos.length > 0">
+        <th>Codigo Voo</th>
+        <th>Codigo Avião</th>
+        <th>Horário Saída</th>
+        <th>Local de Partida</th>
+        <th>Local de Destino</th>
+        <th>Duracao</th>
+        <th>Empresa</th>
+    </tr>
+    <tr *ngFor="let voo of voos" name="vooslist">
+        <td name="codigoVooList">{{voo.codigoVoo}}</td>
+        <td name="codigoAviaoList">{{voo.codigoAviao}}</td>
+        <td name="horarioSaidaList">{{voo.horarioSaida}}</td>
+        <td name="localPartidaList">{{voo.localPartida}}</td>
+        <td name="localDestinoList">{{voo.localDestino}}</td>
+        <td name="duracaoList">{{voo.duracao}}</td>
+        <td name="empresaList">{{voo.empresa}}</td>
+
+    </tr>
+</table>

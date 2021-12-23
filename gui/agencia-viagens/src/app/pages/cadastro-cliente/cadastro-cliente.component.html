@@ -3,7 +3,7 @@
         <div class="uk-card-body">
             <form>
                 <fieldset class="uk-fieldset">
-                    <legend class="uk-legend">Cadastre-se na Agenvia! <p> Preencha seus dados abaixo...</p></legend>
+                    <legend class="uk-legend">Cadastre-se na Agencia de Viagens! <p> Preencha seus dados abaixo...</p></legend>
             
                     <div class="uk-margin">
                         <input name="nomeCliente" [(ngModel)] = "usuario.nome" class="uk-input uk-form-width-large" type="text" placeholder="DIGITE SEU NOME...">
@@ -23,6 +23,8 @@
                 </fieldset>
                 <button class="uk-button uk-button-default" (click) = "cadastrar()">Cadastrar</button>
             </form>
+            <br>
+            <a routerLink="..">JÁ TEM CADASTRO? FAÇA LOGIN!</a>
         </div>
     </div>
 </div>
