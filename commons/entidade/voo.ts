@@ -6,4 +6,5 @@ export class Voo {
     Duracao!: string;
     Assentos!: string;
     Empresa!: string;
-    constructor() { }}
+    constructor() { }
+}
